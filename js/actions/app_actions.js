@@ -7,6 +7,13 @@ var appActions = {
       actionType: appConstants.SELECT_ITEM,
       data: { id: id }
     });
+  },
+
+  updateCurrentItemDescription: function(description) {
+    AppDispatcher.handleViewAction({
+      actionType: appConstants.UPDATE_CUR_ITEM_DESC,
+      data: { description: description }
+    });
   }
   // functions trigger the dispatcher to handle certain actions
 };

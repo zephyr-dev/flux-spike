@@ -31,6 +31,10 @@ var detailStore = objectAssign({}, EventEmitter.prototype, {
     }
   },
 
+  updateCurrentItemDescription: function(data) {
+    _store.currentItem.description = data.description;
+  },
+
   addChangeListener: function(cb) {
     this.on(appConstants.CHANGE_EVENT, cb);
   }
@@ -41,6 +45,10 @@ AppDispatcher.register(function(payload) {
   switch(action.actionType) {
     case appConstants.SELECT_ITEM:
       detailStore.selectItem(action.data);
+      detailStore.emit(appConstants.CHANGE_EVENT);
+      break;
+    case appConstants.UPDATE_CUR_ITEM_DESC:
+      detailStore.updateCurrentItemDescription(action.data);
       detailStore.emit(appConstants.CHANGE_EVENT);
       break;
     default:

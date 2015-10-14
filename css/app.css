@@ -1,18 +1,19 @@
-/*
- * Copyright (c) 2014-2015, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- * base.css overrides
- */
 
-/**
- * We are not changing from display:none, but rather re-rendering instead.
- * Therefore this needs to be displayed normally by default.
- */
-#todo-list li .edit {
-  display: inline;
+.main-container {
+  margin: 100px 200px;
+  border: 1px solid #000000;
+}
+
+section.item-details {
+  border-left:1px solid #333333;
+  padding: 50px;
+}
+
+ul.item-index {
+  padding: 50px;
+}
+
+h1 {
+  text-align: center;
+  padding: 50px;
 }

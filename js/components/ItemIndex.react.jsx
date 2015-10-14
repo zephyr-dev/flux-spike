@@ -12,7 +12,7 @@ var ItemIndex = React.createClass({
     }
 
     return(
-      <ul>{items.map(listItemForItem, this)}</ul>
+      <ul className="item-index">{items.map(listItemForItem, this)}</ul>
     );
   },
 

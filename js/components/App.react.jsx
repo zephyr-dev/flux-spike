@@ -24,14 +24,27 @@ var App = React.createClass({
   render: function() {
     return(
       <div>
-        <ItemIndex list={this.state.list} select={this.handleSelect} />
-        <ItemDetail item={this.state.currentItem} />
+        <h1>OUR WEIRD REACT SPIKE</h1>
+        <div className="main-container">
+          <div className="row">
+            <div className="col-md-3">
+              <ItemIndex list={this.state.list} select={this.handleSelect} />
+            </div>
+            <div className="col-md-9">
+              <ItemDetail item={this.state.currentItem}
+                update={this.updateCurrentItemDescription} />
+            </div>
+          </div>
+        </div>
       </div>
     )
   },
 
   handleSelect: function(id) {
     appActions.selectItem(id);
+  },
+  updateCurrentItemDescription: function(description) {
+    appActions.updateCurrentItemDescription(description);
   },
   _onChange: function() {
     this.setState({
