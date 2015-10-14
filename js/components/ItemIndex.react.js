@@ -1,18 +1,17 @@
 var React = require('react');
-var template = require('../templates/index_template.jsx')
+var template = require('../templates/index_template.rt')
 
 var ItemIndex = React.createClass({
   render: function() {
     var that = this;
-    var args = { 
+    var args = {
       items: this.props.list,
       handleClickConstructor: function (id) {
         return that.handleClick.bind(that, id);
       }
     }
 
-    return(template(args));
-
+    return template;
   },
 
   handleClick: function(id) {

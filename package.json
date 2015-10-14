@@ -10,7 +10,8 @@
     "object-assign": "^1.0.0",
     "react": "^0.12.0",
     "react-dom": "^0.14.0",
-    "react-templates": "~0.2.0"
+    "react-templates": "~0.2.0",
+    "react-templatify": "~0.2.0"
   },
   "devDependencies": {
     "browserify": "^6.2.0",
@@ -29,7 +30,8 @@
   "browserify": {
     "transform": [
       "reactify",
-      "envify"
+      "envify",
+      "react-templatify"
     ]
   },
   "jest": {
