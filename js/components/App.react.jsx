@@ -3,6 +3,9 @@ var indexStore = require('../stores/index_store.js');
 var detailStore = require('../stores/detail_store.js')
 var appActions = require('../actions/app_actions.js');
 
+var ItemIndex = require('./ItemIndex.react.jsx');
+var ItemDetail = require('./ItemDetail.react.jsx');
+
 var App = React.createClass({
   getInitialState: function() {
     return({ 
@@ -19,26 +22,20 @@ var App = React.createClass({
     detailStore.addChangeListener(this._onChange);
   },
   render: function() {
-    var items = this.state.list;
     return(
-      <ul>
-        {items.map(function(item) {
-          return(
-            <li key={item.id} onClick={this.handleClick.bind(this, item.id)}>
-              {item.title}
-            </li>
-          );
-        }, this)}
-      </ul>
+      <div>
+        <ItemIndex list={this.state.list} select={this.handleSelect} />
+        <ItemDetail item={this.state.currentItem} />
+      </div>
     )
   },
 
-  handleClick: function(id) {
-    console.log(id);
+  handleSelect: function(id) {
+    appActions.selectItem(id);
   },
   _onChange: function() {
     this.setState({
-      list: appStore.getList(),
+      list: indexStore.getList(),
       currentItem: detailStore.currentItem()
     });
   }

@@ -23,16 +23,4 @@ var indexStore = objectAssign({}, EventEmitter.prototype, {
   }
 });
 
-AppDispatcher.register(function(payload) {
-  var action = payload.action;
-  switch(action.actionType) {
-    case appConstants.ADD_ITEM:
-      indexStore.addItem(action.data);
-      indexStore.emit(appConstants.CHANGE_EVENT);
-      break;
-    default:
-      throw "Unrecognized action type: " + action.actionType;
-  }
-});
-
 module.exports = indexStore;

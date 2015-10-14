@@ -1,5 +1,5 @@
 var appConstants = {
-  ADD_ITEM: "add",
+  SELECT_ITEM: "select",
   CHANGE_EVENT: "change"
 };
 
