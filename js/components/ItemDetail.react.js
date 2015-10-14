@@ -1,4 +1,5 @@
 var React = require('react');
+var template = require('../templates/detail_template.jsx')
 
 var ItemDetail = React.createClass({
   getInitialState: function() {
@@ -8,16 +9,15 @@ var ItemDetail = React.createClass({
     this.setState({ description: newProps.item.description });
   },
   render: function() {
-    return(
-      <section className="item-details">
-        <h2>{this.props.item.title}</h2>
-        <p>{this.props.item.description}</p>
-        <textarea value={this.state.description}
-          onKeyPress={this.handleSubmit}
-          onChange={this.changeDescription}
-          rows="4" cols="50"></textarea>
-      </section>
-    )
+    var args = {
+      title: this.props.item.title,
+      description: this.props.item.description,
+      editableDescription: this.state.description,
+      handleSubmit: this.handleSubmit,
+      changeDescription: this.changeDescription
+    }
+
+    return(template(args));
   },
 
   handleSubmit: function(e) {

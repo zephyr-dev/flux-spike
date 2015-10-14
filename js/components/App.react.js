@@ -3,8 +3,7 @@ var indexStore = require('../stores/index_store.js');
 var detailStore = require('../stores/detail_store.js')
 var appActions = require('../actions/app_actions.js');
 
-var ItemIndex = require('./ItemIndex.react.jsx');
-var ItemDetail = require('./ItemDetail.react.jsx');
+var template = require('../templates/main_template.jsx')
 
 var App = React.createClass({
   getInitialState: function() {
@@ -22,22 +21,14 @@ var App = React.createClass({
     detailStore.addChangeListener(this._onChange);
   },
   render: function() {
-    return(
-      <div>
-        <h1>OUR WEIRD REACT SPIKE</h1>
-        <div className="main-container">
-          <div className="row">
-            <div className="col-md-3">
-              <ItemIndex list={this.state.list} select={this.handleSelect} />
-            </div>
-            <div className="col-md-9">
-              <ItemDetail item={this.state.currentItem}
-                update={this.updateCurrentItemDescription} />
-            </div>
-          </div>
-        </div>
-      </div>
-    )
+    var args = {
+      list: this.state.list,
+      item: this.state.currentItem,
+      select: this.handleSelect,
+      update: this.updateCurrentItemDescription
+    }
+
+    return(template(args));
   },
 
   handleSelect: function(id) {
