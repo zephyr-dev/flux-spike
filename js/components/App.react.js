@@ -3,11 +3,11 @@ var indexStore = require('../stores/index_store.js');
 var detailStore = require('../stores/detail_store.js')
 var appActions = require('../actions/app_actions.js');
 
-var template = require('../templates/main_template.jsx')
+var template = require('../templates/main_template.rt')
 
 var App = React.createClass({
   getInitialState: function() {
-    return({ 
+    return({
       list: indexStore.getList(),
       currentItem: detailStore.currentItem()
     })
@@ -20,17 +20,7 @@ var App = React.createClass({
     indexStore.removeChangeListener(this._onChange);
     detailStore.addChangeListener(this._onChange);
   },
-  render: function() {
-    var args = {
-      list: this.state.list,
-      item: this.state.currentItem,
-      select: this.handleSelect,
-      update: this.updateCurrentItemDescription
-    }
-
-    return(template(args));
-  },
-
+  render: template,
   handleSelect: function(id) {
     appActions.selectItem(id);
   },

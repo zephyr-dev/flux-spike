@@ -1,5 +1,3 @@
 <ul className="item-index">
-  <li rt-repeat="for item in this.props.list" key={item.id} onClick={this.handleClick.bind(this, item.id)}>
-    {item.title}
-  </li>
+  <li rt-repeat="item in this.props.list" key="{item.id}" onClick="{this.handleClick.bind(this, item.id)}">{item.title}</li>
 </ul>

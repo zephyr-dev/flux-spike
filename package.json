@@ -11,7 +11,8 @@
     "react": "^0.12.0",
     "react-dom": "^0.14.0",
     "react-templates": "~0.2.0",
-    "react-templatify": "~0.2.0"
+    "react-templatify": "~0.2.0",
+    "lodash": "~3.10.1"
   },
   "devDependencies": {
     "browserify": "^6.2.0",

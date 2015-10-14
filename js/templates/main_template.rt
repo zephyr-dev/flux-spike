@@ -1,0 +1,15 @@
+<rt-require dependency="../components/ItemIndex.react.js" as="ItemIndex"/>
+<rt-require dependency="../components/ItemDetail.react.js" as="ItemDetail"/>
+<div>
+  <h1>OUR WEIRD REACT SPIKE</h1>
+  <div className="main-container">
+    <div className="row">
+      <div className="col-md-3">
+        <ItemIndex list={this.state.list} select={this.handleSelect} />
+      </div>
+      <div className="col-md-9">
+        <ItemDetail item={this.state.currentItem} update={this.updateCurrentItemDescription} />
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<section className="item-details">
+  <h2>{this.props.item.title}</h2>
+  <p>{this.props.item.description}</p>
+  <textarea value={this.state.description}
+    onKeyPress={this.handleSubmit}
+    onChange={this.changeDescription}
+    rows="4" cols="50"></textarea>
+</section>
